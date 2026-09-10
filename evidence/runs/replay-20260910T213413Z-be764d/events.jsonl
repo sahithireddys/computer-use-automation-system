@@ -1,0 +1,7 @@
+{"ts": 1789076053.1924238, "run_id": "replay-20260910T213413Z-be764d", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T213413Z-be764d"}}
+{"ts": 1789076053.192564, "run_id": "replay-20260910T213413Z-be764d", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "12345"}}}
+{"ts": 1789076054.142564, "run_id": "replay-20260910T213413Z-be764d", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789076054.18414, "run_id": "replay-20260910T213413Z-be764d", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789076054.2249548, "run_id": "replay-20260910T213413Z-be764d", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789076054.295179, "run_id": "replay-20260910T213413Z-be764d", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789076054.3152692, "run_id": "replay-20260910T213413Z-be764d", "event": "outcome", "payload": {"status": "success", "outputs": {"savings_balance": "$1842.30"}}}

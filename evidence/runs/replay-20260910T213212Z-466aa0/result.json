@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "member-balance-lookup",
+  "capability_version": 1,
+  "run_id": "replay-20260910T213212Z-466aa0",
+  "status": "hard_failure",
+  "outputs": {},
+  "business_outcome_name": null,
+  "failure": {
+    "step_id": "s3",
+    "expected": "strategy=<LocatorStrategy.TABLE_ROW_CELL: 'table_row_cell'> value='Savings' role=None fallbacks=[] robustness_note=None nth_cell=-1",
+    "observed": "['table_row_cell:Savings']"
+  },
+  "escalation_reason": null,
+  "started_at": "2026-09-10T21:32:13Z",
+  "finished_at": "2026-09-10T21:32:44Z",
+  "evidence_refs": [
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T213212Z-466aa0"
+  ]
+}

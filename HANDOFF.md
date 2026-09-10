@@ -45,8 +45,24 @@ full design writeup (7 required sections).
   Cuts section, not an oversight): the spec only requires ONE genuine LLM
   discovery run.
   - `member-balance-lookup` (SAFE, read-only) -- **the real discovery
-    run**, via `scripts/run_agent.py`. **Not yet run** -- needs the user's
-    own `ANTHROPIC_API_KEY` (see Next Steps #1).
+    run**, run by the user via `scripts/run_agent.py` with their own
+    `ANTHROPIC_API_KEY`. Produced `capabilities/member-balance-lookup.json`
+    version 1, `status: "draft"`, evidence at
+    `evidence/runs/discovery-20260910T212811Z-b4ba4d`. The one discovery
+    session only ever searched member 12345 (a found/active record), so
+    v1 shipped with `business_outcomes: []` and a `success_checkpoint`
+    hardcoded to that member's literal balance string -- confirmed broken
+    by replaying member `00099` (hard-failed + escalated instead of
+    classifying as `member_not_found`). **Reviewed and patched to v2,
+    `status: "approved"`**: added `member_not_found` /
+    `permission_denied` business outcomes (detection text known from
+    earlier manual testing) and replaced the checkpoint with the stable
+    `"Member Record"` marker. This is the draft -> approved review gate
+    working as designed, not a re-run of discovery -- see REPORT.md's
+    Determinism & error handling section for the full story, and
+    `evidence/runs/replay-20260910T213212Z-466aa0` (v1, hard failure) vs.
+    `replay-20260910T213418Z-cbd8ad` (v2, correctly classified) for the
+    before/after.
   - `open-sub-account` (IRREVERSIBLE, multi-field form + confirmation
     step) -- **hand-authored**, saved at
     `capabilities/open-sub-account.json`. Locator choices for its
@@ -105,40 +121,31 @@ All 43 tests in `tests/` pass after these fixes (`pytest tests/ -v`).
   recovery-budget-exhausted -> ESCALATED, HARD_FAILURE ->
   escalation -> human resume -> SUCCESS, and a full IRREVERSIBLE
   `open-sub-account` replay through the app's own confirm screen.
-- `evidence/runs/` holds 7 curated, clean (post-bugfix) demonstration
-  runs covering all of the above via `scripts/replay.py` directly (see
-  README.md section "Demo commands" for the exact commands that produced
-  each one).
+- `evidence/runs/` holds 10 curated runs: the real discovery session for
+  `member-balance-lookup`, before/after replay pairs demonstrating the v1
+  draft-artifact bug and its v2 fix (see above), and demonstration runs
+  covering the rest of the outcome taxonomy (recovery-budget-exhausted,
+  hard-failure -> escalation -> resume -> success, and both
+  `open-sub-account` outcomes) via `scripts/replay.py` directly -- see
+  README.md section "Demo commands" for the exact commands.
 - `scripts/replay.py` and `scripts/run_agent.py` (Next Steps' old #5) are
   written and working.
 
 ## What is NOT yet done
 
-1. **Run the real LLM discovery** for `member-balance-lookup` (needs the
-   user's own `ANTHROPIC_API_KEY`, exported in their own shell --
-   `scripts/run_agent.py` refuses to run without it and never accepts it
-   as a CLI arg; never paste it into a chat). Once run, this produces
-   `capabilities/member-balance-lookup.json`, which the replay demo
-   commands in `README.md` section 1 then need to actually execute
-   (currently that section's commands will fail with "file not found"
-   until this artifact exists).
-   ```bash
-   export ANTHROPIC_API_KEY=sk-ant-...
-   python scripts/run_agent.py --goal "Look up member 12345's savings balance" \
-       --capability-id member-balance-lookup --base-url http://127.0.0.1:5055 \
-       --param member_id=12345 --output savings_balance
-   ```
-   If it succeeds, also capture a couple of replay runs against the
-   resulting artifact into `evidence/runs/` (success + at least one
-   business-outcome/error case) to round out the evidence set with a
-   *real* discovery-produced artifact, not just the test-only equivalent
-   used for the demonstrations captured so far.
-2. Git init, confirm `.gitignore` keeps secrets/caches out (updated this
-   session -- evidence/runs/* is now intentionally tracked, see the
-   comment in `.gitignore`), first commit, push to a **public** GitHub
-   repo, email the link per spec section 11. **Not started** -- needs the
-   user's go-ahead on the GitHub account/repo name and confirmation before
-   any push (publishing is an outward-facing action).
+1. Push to a **public** GitHub repo, email the link per spec section 11.
+   Local git repo is initialized and committed (see below) but nothing is
+   pushed anywhere yet -- needs the user's go-ahead on the GitHub
+   account/repo name and confirmation before any push (publishing is an
+   outward-facing action).
+2. Optional polish, not blocking: `evidence/runs/` currently mixes the
+   real discovery-backed `member-balance-lookup` demos (v1 broken + v2
+   fixed, see above) with a couple of `open-sub-account` /
+   session-timeout / undeclared-interstitial demos captured earlier
+   against an internal test-only stand-in artifact (same step/checkpoint
+   shape, just not the file under `capabilities/`) -- functionally
+   equivalent, but worth knowing if you're auditing which evidence run
+   came from which exact artifact file.
 
 ## Local setup
 

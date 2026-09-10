@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "member-balance-lookup",
+  "name": "Member Balance Lookup",
+  "description": "Discovered capability for goal: Look up member 12345's savings balance",
+  "version": 2,
+  "target": {
+    "app_id": "cu-servicer",
+    "base_url": "http://127.0.0.1:5055",
+    "entry_path": "/",
+    "vendor_version": null
+  },
+  "goal_statement": "Look up member 12345's savings balance",
+  "input_parameters": [
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "Input parameter 'member_id'",
+      "example": "12345"
+    }
+  ],
+  "output_schema": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "Extracted field 'savings_balance'"
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "s0",
+      "action": "navigate",
+      "description": "Navigate to entry point",
+      "locator": null,
+      "value_template": "/",
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "safe",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s1",
+      "action": "fill",
+      "description": "Fill textbox 'Enter member ID'",
+      "locator": {
+        "strategy": "role_name",
+        "value": "Enter member ID",
+        "role": "textbox",
+        "fallbacks": [
+          {
+            "strategy": "placeholder",
+            "value": "Enter member ID",
+            "role": null,
+            "fallbacks": [],
+            "robustness_note": null,
+            "nth_cell": -1
+          }
+        ],
+        "robustness_note": "Resolved via accessibility role+name during discovery; falls back to placeholder.",
+        "nth_cell": -1
+      },
+      "value_template": "{{member_id}}",
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "safe",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s2",
+      "action": "click",
+      "description": "Click button 'Look Up Member'",
+      "locator": {
+        "strategy": "role_name",
+        "value": "Look Up Member",
+        "role": "button",
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Look Up Member",
+            "role": null,
+            "fallbacks": [],
+            "robustness_note": null,
+            "nth_cell": -1
+          }
+        ],
+        "robustness_note": "Resolved via accessibility role+name during discovery; falls back to text_content.",
+        "nth_cell": -1
+      },
+      "value_template": null,
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "reversible",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s3",
+      "action": "extract",
+      "description": "Extract cell from row 'Savings'",
+      "locator": {
+        "strategy": "table_row_cell",
+        "value": "Savings",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "value_template": null,
+      "extract_as": "savings_balance",
+      "extract_attribute": null,
+      "risk_level": "safe",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    }
+  ],
+  "business_outcomes": [
+    {
+      "name": "member_not_found",
+      "description": "No record exists for the given member ID. Added via human review after the initial discovery run (which only ever searched member 12345, a found/active record, and so never encountered this page) -- detection text confirmed against the live app during earlier manual testing.",
+      "detection": {
+        "strategy": "text_content",
+        "value": "No member record found",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "outputs": {
+        "found": false
+      }
+    },
+    {
+      "name": "permission_denied",
+      "description": "The member record is restricted. Added via human review for the same reason as member_not_found -- not encountered during the happy-path discovery run.",
+      "detection": {
+        "strategy": "text_content",
+        "value": "Access denied.",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "outputs": {
+        "found": false,
+        "restricted": true
+      }
+    }
+  ],
+  "success_checkpoint": {
+    "strategy": "text_content",
+    "value": "Member Record",
+    "role": null,
+    "fallbacks": [],
+    "robustness_note": null,
+    "nth_cell": -1
+  },
+  "allowed_domains": [
+    "127.0.0.1"
+  ],
+  "max_step_risk": "reversible",
+  "created_at": "2026-09-10T21:28:22.797454+00:00",
+  "created_from_run_id": "discovery-20260910T212811Z-b4ba4d",
+  "status": "approved"
+}

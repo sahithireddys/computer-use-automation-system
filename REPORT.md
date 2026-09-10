@@ -193,6 +193,47 @@ Playwright's supported equivalent) with regression tests
 (`tests/test_observer.py`) pinning its (role, name) output against the
 real app.
 
+**The real discovery run itself surfaced a fourth, more fundamental gap --
+this one in the artifact it produced, not in the engine.** The one LLM
+discovery session run against this system was given the goal "look up
+member 12345's savings balance," and it only ever searched that one
+(found, active) member. Nothing forced it to also try a not-found or
+restricted ID, so the resulting `capabilities/member-balance-lookup.json`
+came back with `business_outcomes: []` and a `success_checkpoint` of
+`"Savings SAV-12345-01 $1842.30"` -- the *literal balance string for that
+one member*, not a stable page marker. Replaying it against member
+`00099` (not-found) or `99999` (restricted) therefore hard-failed at the
+extract step and escalated to a human operator, instead of classifying
+as the `member_not_found` / `permission_denied` business outcomes those
+pages actually represent -- not because replay's classification logic
+was wrong, but because the artifact never declared those outcomes for it
+to check against.
+
+This is exactly the situation `CapabilityArtifact.status` (`"draft"` /
+`"approved"`) exists for: discovery produces a draft, and a draft is not
+assumed correct or complete on its own -- it's reviewed before being
+promoted. Here, a human reviewer (with prior manual knowledge of this
+app's exact detection text, from the same testing that verified the
+engine originally) added the two missing `BusinessOutcome` declarations,
+replaced the member-specific checkpoint with the stable `"Member Record"`
+marker every successful lookup actually shows, and bumped `version` to 2
+before flipping `status` to `"approved"` -- the same schema fields
+discovery would have populated itself had its one exploratory run
+happened to also cover those paths. No engine or schema code changed to
+fix this; `evidence/runs/discovery-20260910T212811Z-b4ba4d` (the real
+discovery session) and the paired before/after replay runs for member
+`00099` against artifact versions 1 and 2
+(`replay-20260910T213212Z-466aa0` hard-failing, then
+`replay-20260910T213418Z-cbd8ad` correctly classifying as
+`member_not_found`) document the before/after.
+
+The broader lesson: a single discovery run only ever covers the paths it
+happened to take. Declaring `business_outcomes` and a checkpoint
+correctly for paths *never observed* is not something discovery can be
+expected to get right on the first try -- draft-status review by someone
+who has separately verified the target app's actual behavior (as
+happened here) is the intended safety net, not an afterthought.
+
 ## Heterogeneity & multi-tenant
 
 Two mechanisms make this reusable across different legacy vendor

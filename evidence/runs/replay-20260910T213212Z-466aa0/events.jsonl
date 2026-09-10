@@ -1,0 +1,12 @@
+{"ts": 1789075932.6567822, "run_id": "replay-20260910T213212Z-466aa0", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T213212Z-466aa0"}}
+{"ts": 1789075932.6569102, "run_id": "replay-20260910T213212Z-466aa0", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "00099"}}}
+{"ts": 1789075933.532751, "run_id": "replay-20260910T213212Z-466aa0", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789075933.6009998, "run_id": "replay-20260910T213212Z-466aa0", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789075933.651636, "run_id": "replay-20260910T213212Z-466aa0", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789075933.71008, "run_id": "replay-20260910T213212Z-466aa0", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789075933.739829, "run_id": "replay-20260910T213212Z-466aa0", "event": "screenshot", "payload": {"label": "hard_failure", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T213212Z-466aa0/screenshots/005_hard_failure.png"}}
+{"ts": 1789075933.74035, "run_id": "replay-20260910T213212Z-466aa0", "event": "escalation", "payload": {"reason": "step_failed_hard", "step_id": "s3", "error": "Could not resolve locator (strategy=LocatorStrategy.TABLE_ROW_CELL, value='Savings'); tried: ['table_row_cell:Savings']"}}
+{"ts": 1789075933.7645938, "run_id": "replay-20260910T213212Z-466aa0", "event": "screenshot", "payload": {"label": "intervention_request", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T213212Z-466aa0/screenshots/006_intervention_request.png"}}
+{"ts": 1789075964.848961, "run_id": "replay-20260910T213212Z-466aa0", "event": "human_action", "payload": {"description": "resume"}}
+{"ts": 1789075964.8520372, "run_id": "replay-20260910T213212Z-466aa0", "event": "control_returned_to_automation", "payload": {"page_url": "http://127.0.0.1:5055/search?member_id=00099"}}
+{"ts": 1789075964.866173, "run_id": "replay-20260910T213212Z-466aa0", "event": "outcome", "payload": {"status": "hard_failure", "step_id": "s3", "expected": "strategy=<LocatorStrategy.TABLE_ROW_CELL: 'table_row_cell'> value='Savings' role=None fallbacks=[] robustness_note=None nth_cell=-1", "observed": "['table_row_cell:Savings']"}}

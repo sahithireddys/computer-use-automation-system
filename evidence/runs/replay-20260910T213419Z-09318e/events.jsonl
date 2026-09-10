@@ -1,0 +1,7 @@
+{"ts": 1789076059.465198, "run_id": "replay-20260910T213419Z-09318e", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T213419Z-09318e"}}
+{"ts": 1789076059.4653661, "run_id": "replay-20260910T213419Z-09318e", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "99999"}}}
+{"ts": 1789076059.774174, "run_id": "replay-20260910T213419Z-09318e", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789076059.79506, "run_id": "replay-20260910T213419Z-09318e", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789076059.81445, "run_id": "replay-20260910T213419Z-09318e", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789076059.877097, "run_id": "replay-20260910T213419Z-09318e", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789076061.40856, "run_id": "replay-20260910T213419Z-09318e", "event": "outcome", "payload": {"status": "business_outcome", "name": "permission_denied"}}

@@ -56,8 +56,14 @@ All commands below assume the mock app is running at
 
 ### 1. Deterministic replay -- `member-balance-lookup` (SAFE, read-only)
 
-This capability's artifact is produced by the real LLM discovery run (see
-below); once `capabilities/member-balance-lookup.json` exists:
+This capability's artifact was produced by a real LLM discovery run (see
+section 3 below), then reviewed by a human and promoted from `draft` to
+`approved` (version 2) -- the initial discovery run only ever searched a
+found/active member, so it never declared business outcomes for
+not-found/restricted records; those were added during review, not by
+re-running discovery. See `REPORT.md`'s Determinism & error handling
+section for the full story. `capabilities/member-balance-lookup.json`
+already exists in this repo, so these all run as-is:
 
 ```bash
 # Happy path
@@ -117,8 +123,12 @@ python scripts/run_agent.py \
     --output savings_balance
 ```
 
-On success this writes `capabilities/member-balance-lookup.json`, which
-the replay commands in section 1 above then execute deterministically.
+On success this writes `capabilities/member-balance-lookup.json` as a
+fresh `status: "draft"`, `version: 1` artifact covering only the path this
+one run happened to take. Before trusting it for paths beyond that (e.g.
+not-found/restricted member IDs it never searched), review it like any
+other draft -- see the note in section 1 above and REPORT.md's
+Determinism & error handling section.
 
 Every command above writes structured evidence (`events.jsonl`,
 screenshots, `result.json`) under `evidence/runs/<run_id>/`. See

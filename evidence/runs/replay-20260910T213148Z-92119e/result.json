@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "capability_id": "member-balance-lookup",
   "capability_version": 1,
-  "run_id": "replay-20260910T210313Z-296452",
+  "run_id": "replay-20260910T213148Z-92119e",
   "status": "success",
   "outputs": {
     "savings_balance": "$1842.30"
@@ -10,9 +10,9 @@
   "business_outcome_name": null,
   "failure": null,
   "escalation_reason": null,
-  "started_at": "2026-09-10T21:03:13Z",
-  "finished_at": "2026-09-10T21:03:14Z",
+  "started_at": "2026-09-10T21:31:49Z",
+  "finished_at": "2026-09-10T21:31:49Z",
   "evidence_refs": [
-    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T210313Z-296452"
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T213148Z-92119e"
   ]
 }

@@ -1,0 +1,7 @@
+{"ts": 1789076058.885399, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T213418Z-cbd8ad"}}
+{"ts": 1789076058.8855739, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "00099"}}}
+{"ts": 1789076059.20358, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789076059.23163, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789076059.251832, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789076059.306103, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789076059.315525, "run_id": "replay-20260910T213418Z-cbd8ad", "event": "outcome", "payload": {"status": "business_outcome", "name": "member_not_found"}}
