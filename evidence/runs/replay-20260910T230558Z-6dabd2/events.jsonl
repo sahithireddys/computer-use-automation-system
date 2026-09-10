@@ -1,0 +1,13 @@
+{"ts": 1789081558.884692, "run_id": "replay-20260910T230558Z-6dabd2", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T230558Z-6dabd2"}}
+{"ts": 1789081558.88482, "run_id": "replay-20260910T230558Z-6dabd2", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "55555"}}}
+{"ts": 1789081559.548895, "run_id": "replay-20260910T230558Z-6dabd2", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789081559.5673192, "run_id": "replay-20260910T230558Z-6dabd2", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789081559.5870678, "run_id": "replay-20260910T230558Z-6dabd2", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789081559.6514628, "run_id": "replay-20260910T230558Z-6dabd2", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789081562.708002, "run_id": "replay-20260910T230558Z-6dabd2", "event": "screenshot", "payload": {"label": "hard_failure", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230558Z-6dabd2/screenshots/005_hard_failure.png"}}
+{"ts": 1789081562.708309, "run_id": "replay-20260910T230558Z-6dabd2", "event": "escalation", "payload": {"reason": "step_failed_hard", "step_id": "s3", "error": "Could not resolve locator (strategy=LocatorStrategy.TABLE_ROW_CELL, value='Savings'); tried: ['table_row_cell:Savings']"}}
+{"ts": 1789081562.729022, "run_id": "replay-20260910T230558Z-6dabd2", "event": "screenshot", "payload": {"label": "intervention_request", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230558Z-6dabd2/screenshots/006_intervention_request.png"}}
+{"ts": 1789081562.779074, "run_id": "replay-20260910T230558Z-6dabd2", "event": "human_action", "payload": {"description": "click Proceed to Record"}}
+{"ts": 1789081562.779242, "run_id": "replay-20260910T230558Z-6dabd2", "event": "operator_console_scripted_exhausted", "payload": {}}
+{"ts": 1789081562.779315, "run_id": "replay-20260910T230558Z-6dabd2", "event": "control_returned_to_automation", "payload": {"page_url": "http://127.0.0.1:5055/search?member_id=55555"}}
+{"ts": 1789081562.80411, "run_id": "replay-20260910T230558Z-6dabd2", "event": "outcome", "payload": {"status": "success", "outputs": {"savings_balance": "$9730.50"}}}

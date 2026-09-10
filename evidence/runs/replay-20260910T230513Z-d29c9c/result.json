@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "member-balance-lookup",
+  "capability_version": 2,
+  "run_id": "replay-20260910T230513Z-d29c9c",
+  "status": "business_outcome",
+  "outputs": {
+    "found": false,
+    "restricted": true
+  },
+  "business_outcome_name": "permission_denied",
+  "failure": null,
+  "escalation_reason": null,
+  "started_at": "2026-09-10T23:05:14Z",
+  "finished_at": "2026-09-10T23:05:16Z",
+  "evidence_refs": [
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230513Z-d29c9c"
+  ]
+}

@@ -1,0 +1,9 @@
+{"ts": 1789081617.561387, "run_id": "replay-20260910T230657Z-ae92c5", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T230657Z-ae92c5"}}
+{"ts": 1789081617.561512, "run_id": "replay-20260910T230657Z-ae92c5", "event": "cli_invocation", "payload": {"capability": "capabilities/open-sub-account.json", "params": {"member_id": "12346", "account_type": "Savings", "initial_deposit": "2.00"}}}
+{"ts": 1789081618.426451, "run_id": "replay-20260910T230657Z-ae92c5", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789081618.480391, "run_id": "replay-20260910T230657Z-ae92c5", "event": "step", "payload": {"step_id": "s1", "action": "select_option", "risk": "reversible"}}
+{"ts": 1789081618.51152, "run_id": "replay-20260910T230657Z-ae92c5", "event": "step", "payload": {"step_id": "s2", "action": "fill", "risk": "reversible"}}
+{"ts": 1789081618.530921, "run_id": "replay-20260910T230657Z-ae92c5", "event": "step", "payload": {"step_id": "s3", "action": "click", "risk": "reversible"}}
+{"ts": 1789081618.6037052, "run_id": "replay-20260910T230657Z-ae92c5", "event": "step", "payload": {"step_id": "s4", "action": "click", "risk": "irreversible"}}
+{"ts": 1789081618.603822, "run_id": "replay-20260910T230657Z-ae92c5", "event": "risky_step_auto_proceeding", "payload": {"step_id": "s4", "risk": "irreversible", "note": "irreversible step; target app's own in-flow confirmation screen is the control here (recorded as a prior step)."}}
+{"ts": 1789081631.646602, "run_id": "replay-20260910T230657Z-ae92c5", "event": "outcome", "payload": {"status": "business_outcome", "name": "invalid_deposit_amount"}}

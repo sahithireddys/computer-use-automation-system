@@ -1,0 +1,20 @@
+{"ts": 1789081546.5416472, "run_id": "replay-20260910T230546Z-5a3251", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T230546Z-5a3251"}}
+{"ts": 1789081546.541774, "run_id": "replay-20260910T230546Z-5a3251", "event": "cli_invocation", "payload": {"capability": "capabilities/member-balance-lookup.json", "params": {"member_id": "00000"}}}
+{"ts": 1789081547.406719, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789081547.459691, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789081547.5103161, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789081547.62594, "run_id": "replay-20260910T230546Z-5a3251", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789081547.634214, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789081547.652176, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789081547.665666, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789081547.790435, "run_id": "replay-20260910T230546Z-5a3251", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789081547.800566, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789081547.8150022, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789081547.827316, "run_id": "replay-20260910T230546Z-5a3251", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "reversible"}}
+{"ts": 1789081547.940707, "run_id": "replay-20260910T230546Z-5a3251", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789081547.940939, "run_id": "replay-20260910T230546Z-5a3251", "event": "escalation", "payload": {"reason": "recovery_budget_exhausted", "attempts": 3, "step_id": "s3"}}
+{"ts": 1789081547.9660401, "run_id": "replay-20260910T230546Z-5a3251", "event": "screenshot", "payload": {"label": "escalation", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230546Z-5a3251/screenshots/010_escalation.png"}}
+{"ts": 1789081547.9661472, "run_id": "replay-20260910T230546Z-5a3251", "event": "escalation", "payload": {"reason": "recovery_budget_exhausted", "attempts": 3, "step_id": "s3"}}
+{"ts": 1789081547.992417, "run_id": "replay-20260910T230546Z-5a3251", "event": "screenshot", "payload": {"label": "intervention_request", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230546Z-5a3251/screenshots/011_intervention_request.png"}}
+{"ts": 1789081551.6850529, "run_id": "replay-20260910T230546Z-5a3251", "event": "human_action", "payload": {"description": "resume"}}
+{"ts": 1789081551.685782, "run_id": "replay-20260910T230546Z-5a3251", "event": "control_returned_to_automation", "payload": {"page_url": "http://127.0.0.1:5055/"}}

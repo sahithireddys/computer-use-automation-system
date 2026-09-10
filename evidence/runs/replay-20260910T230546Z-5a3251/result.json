@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "member-balance-lookup",
+  "capability_version": 2,
+  "run_id": "replay-20260910T230546Z-5a3251",
+  "status": "escalated",
+  "outputs": {},
+  "business_outcome_name": null,
+  "failure": null,
+  "escalation_reason": "recovery_budget_exhausted",
+  "started_at": "2026-09-10T23:05:47Z",
+  "finished_at": "2026-09-10T23:05:51Z",
+  "evidence_refs": [
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T230546Z-5a3251"
+  ]
+}
