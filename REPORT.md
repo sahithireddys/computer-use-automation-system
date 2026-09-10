@@ -1,4 +1,4 @@
-# Report: interface.ai Computer-Use Automation System
+# Report: Computer-Use Automation System
 
 ## Architecture
 
