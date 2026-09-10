@@ -1,4 +1,4 @@
-# interface.ai Computer-Use Automation System
+# Computer-Use Automation System
 
 A backend integration layer that lets an AI agent operate legacy
 back-office bank/credit-union UIs that have no API: an LLM discovers how
