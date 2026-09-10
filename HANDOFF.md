@@ -1,4 +1,4 @@
-# Handoff: interface.ai Computer-Use Automation System
+# Handoff: Computer-Use Automation System
 
 This is a take-home assignment for interface.ai (design doc:
 `Assignment_A___Computer-Use_Automation_System.pdf`, not included here --
