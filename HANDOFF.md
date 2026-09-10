@@ -1,8 +1,6 @@
 # Handoff: Computer-Use Automation System
 
-This is a take-home assignment for interface.ai (design doc:
-`Assignment_A___Computer-Use_Automation_System.pdf`, not included here --
-ask the user if you need the original text). This file exists so whoever
+This file exists so whoever
 picks up the project next (human or Claude Code) has full context without
 re-deriving decisions already made and verified.
 
