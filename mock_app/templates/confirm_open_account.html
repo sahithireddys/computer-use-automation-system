@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>CU-Servicer :: Confirm Sub-Account</title></head>
+<body style="font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">
+<table width="100%" cellpadding="4" cellspacing="0" border="0" bgcolor="#003366">
+  <tr><td><font color="white"><b>CU-SERVICER 3.2</b> &nbsp; Back-Office Console</font></td></tr>
+</table>
+<br>
+<table cellpadding="6" cellspacing="0" border="1">
+<tr><td>
+  <b>Please confirm &mdash; this action cannot be undone.</b>
+  <table cellpadding="3" cellspacing="0" border="0">
+    <tr><td>Member:</td><td>{{ member.member_id }} ({{ member.first_name }} {{ member.last_name }})</td></tr>
+    <tr><td>New account type:</td><td>{{ account_type }}</td></tr>
+    <tr><td>Initial deposit:</td><td>${{ initial_deposit }}</td></tr>
+  </table>
+  <br>
+  <form action="/member/{{ member.member_id }}/open-account" method="post">
+    <input type="hidden" name="account_type" value="{{ account_type }}">
+    <input type="hidden" name="initial_deposit" value="{{ initial_deposit }}">
+    <input type="hidden" name="confirmed" value="yes">
+    <button type="submit">Confirm &amp; Open Account</button>
+  </form>
+  <a href="/member/{{ member.member_id }}/open-account">Cancel</a>
+</td></tr>
+</table>
+</body>
+</html>

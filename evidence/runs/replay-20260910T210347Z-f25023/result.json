@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "open-sub-account",
+  "capability_version": 1,
+  "run_id": "replay-20260910T210347Z-f25023",
+  "status": "success",
+  "outputs": {
+    "new_account_id": "MON-12346-1000"
+  },
+  "business_outcome_name": null,
+  "failure": null,
+  "escalation_reason": null,
+  "started_at": "2026-09-10T21:03:47Z",
+  "finished_at": "2026-09-10T21:03:47Z",
+  "evidence_refs": [
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T210347Z-f25023"
+  ]
+}

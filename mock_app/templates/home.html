@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>CU-Servicer :: Member Lookup</title></head>
+<body style="font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">
+<table width="100%" cellpadding="4" cellspacing="0" border="0" bgcolor="#003366">
+  <tr><td><font color="white"><b>CU-SERVICER 3.2</b> &nbsp; Back-Office Console</font></td></tr>
+</table>
+<br>
+<table cellpadding="6" cellspacing="0" border="1">
+  <tr>
+    <td valign="top">
+      <table cellpadding="3" cellspacing="0" border="0">
+        <tr>
+          <td colspan="2"><b>Member Lookup</b></td>
+        </tr>
+        {% if error %}
+        <tr><td colspan="2"><font color="red">{{ error }}</font></td></tr>
+        {% endif %}
+        <form action="/search" method="get">
+        <tr>
+          <td>Member ID:</td>
+          <td><input type="text" name="member_id" placeholder="Enter member ID"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right"><button type="submit">Look Up Member</button></td>
+        </tr>
+        </form>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

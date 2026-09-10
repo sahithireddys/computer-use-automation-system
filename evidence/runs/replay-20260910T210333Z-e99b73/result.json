@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "open-sub-account",
+  "capability_version": 1,
+  "run_id": "replay-20260910T210333Z-e99b73",
+  "status": "business_outcome",
+  "outputs": {
+    "opened": false,
+    "reason": "deposit_below_minimum"
+  },
+  "business_outcome_name": "invalid_deposit_amount",
+  "failure": null,
+  "escalation_reason": null,
+  "started_at": "2026-09-10T21:03:33Z",
+  "finished_at": "2026-09-10T21:03:46Z",
+  "evidence_refs": [
+    "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T210333Z-e99b73"
+  ]
+}

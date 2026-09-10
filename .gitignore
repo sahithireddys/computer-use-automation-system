@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.pytest_cache/
+.DS_Store
+capabilities/*.json.bak
+
+# Note: evidence/runs/* is intentionally NOT ignored -- the curated
+# discovery/replay demonstrations there are part of the deliverable (see
+# HANDOFF.md item 8). The test suite never writes there (it redirects
+# EvidenceLogger to a throwaway tmp dir; see tests/conftest.py's
+# isolated_evidence_root fixture), so nothing but the curated runs land
+# in this directory.

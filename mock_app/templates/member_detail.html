@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>CU-Servicer :: Member {{ member.member_id }}</title></head>
+<body style="font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">
+<table width="100%" cellpadding="4" cellspacing="0" border="0" bgcolor="#003366">
+  <tr><td><font color="white"><b>CU-SERVICER 3.2</b> &nbsp; Back-Office Console</font></td></tr>
+</table>
+<br>
+<table cellpadding="6" cellspacing="0" border="1">
+<tr><td>
+  <table cellpadding="3" cellspacing="0" border="0">
+    <tr><td colspan="2"><b>Member Record</b></td></tr>
+    <tr><td>Member ID:</td><td>{{ member.member_id }}</td></tr>
+    <tr><td>Name:</td><td>{{ member.first_name }} {{ member.last_name }}</td></tr>
+    <tr><td>Status:</td><td>{{ member.status }}</td></tr>
+  </table>
+  <br>
+  <table cellpadding="3" cellspacing="1" border="1" bgcolor="#eeeeee">
+    <tr bgcolor="#cccccc"><td><b>Account Type</b></td><td><b>Account ID</b></td><td><b>Balance</b></td></tr>
+    {% for acct in member.accounts %}
+    <tr bgcolor="white">
+      <td>{{ acct.account_type }}</td>
+      <td>{{ acct.account_id }}</td>
+      <td>${{ "%.2f"|format(acct.balance_cents / 100) }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <a href="/member/{{ member.member_id }}/open-account">Open a new sub-account for this member</a>
+  &nbsp;|&nbsp;
+  <a href="/">Back to search</a>
+</td></tr>
+</table>
+</body>
+</html>

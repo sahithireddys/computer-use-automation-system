@@ -1,0 +1,7 @@
+{"ts": 1789074193.071413, "run_id": "replay-20260910T210313Z-296452", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T210313Z-296452"}}
+{"ts": 1789074193.071549, "run_id": "replay-20260910T210313Z-296452", "event": "cli_invocation", "payload": {"capability": "/private/tmp/claude-501/-Users-sahithi-Downloads-interface-ai-cua/5059ed66-dcf2-4f88-bbb9-2a9b339a90ff/scratchpad/member-balance-lookup.test.json", "params": {"member_id": "12345"}}}
+{"ts": 1789074194.010865, "run_id": "replay-20260910T210313Z-296452", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074194.058274, "run_id": "replay-20260910T210313Z-296452", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074194.1100008, "run_id": "replay-20260910T210313Z-296452", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074194.184844, "run_id": "replay-20260910T210313Z-296452", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789074194.206238, "run_id": "replay-20260910T210313Z-296452", "event": "outcome", "payload": {"status": "success", "outputs": {"savings_balance": "$1842.30"}}}

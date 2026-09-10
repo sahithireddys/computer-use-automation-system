@@ -1,0 +1,19 @@
+{"ts": 1789074203.557476, "run_id": "replay-20260910T210323Z-589c95", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T210323Z-589c95"}}
+{"ts": 1789074203.5576231, "run_id": "replay-20260910T210323Z-589c95", "event": "cli_invocation", "payload": {"capability": "/private/tmp/claude-501/-Users-sahithi-Downloads-interface-ai-cua/5059ed66-dcf2-4f88-bbb9-2a9b339a90ff/scratchpad/member-balance-lookup.test.json", "params": {"member_id": "00000"}}}
+{"ts": 1789074203.9176269, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074203.935694, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074203.95594, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074204.0741298, "run_id": "replay-20260910T210323Z-589c95", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789074204.083045, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074204.100831, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074204.113373, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074204.23596, "run_id": "replay-20260910T210323Z-589c95", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789074204.244616, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074204.2584472, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074204.270468, "run_id": "replay-20260910T210323Z-589c95", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074204.386348, "run_id": "replay-20260910T210323Z-589c95", "event": "recovered_interstitial", "payload": {"name": "session_timeout_interstitial", "restart_flow": true}}
+{"ts": 1789074204.386579, "run_id": "replay-20260910T210323Z-589c95", "event": "escalation", "payload": {"reason": "recovery_budget_exhausted", "attempts": 3, "step_id": "s3"}}
+{"ts": 1789074204.414774, "run_id": "replay-20260910T210323Z-589c95", "event": "screenshot", "payload": {"label": "escalation", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T210323Z-589c95/screenshots/010_escalation.png"}}
+{"ts": 1789074204.414874, "run_id": "replay-20260910T210323Z-589c95", "event": "escalation", "payload": {"reason": "recovery_budget_exhausted", "attempts": 3, "step_id": "s3"}}
+{"ts": 1789074204.438188, "run_id": "replay-20260910T210323Z-589c95", "event": "screenshot", "payload": {"label": "intervention_request", "path": "/Users/sahithi/Downloads/interface-ai-cua/evidence/runs/replay-20260910T210323Z-589c95/screenshots/011_intervention_request.png"}}
+{"ts": 1789074204.438314, "run_id": "replay-20260910T210323Z-589c95", "event": "control_returned_to_automation", "payload": {"page_url": "http://127.0.0.1:5055/"}}

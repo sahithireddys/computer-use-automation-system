@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "open-sub-account",
+  "name": "Open Sub Account",
+  "description": "Open a new sub-account (Savings/Checking/Money Market) for an existing member, with an initial deposit, subject to the target app's own confirmation step. IRREVERSIBLE.",
+  "version": 1,
+  "target": {
+    "app_id": "cu-servicer",
+    "base_url": "http://127.0.0.1:5055",
+    "entry_path": "/member/{member_id}/open-account",
+    "vendor_version": null
+  },
+  "goal_statement": "Open a new sub-account of the given type for the given member, funded with the given initial deposit.",
+  "input_parameters": [
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "Existing member ID to open the sub-account for.",
+      "example": "12345"
+    },
+    {
+      "name": "account_type",
+      "type": "string",
+      "required": true,
+      "description": "One of 'Savings', 'Checking', 'Money Market'.",
+      "example": "Savings"
+    },
+    {
+      "name": "initial_deposit",
+      "type": "string",
+      "required": true,
+      "description": "Initial deposit amount in dollars, e.g. '25.00'. Must be >= 5.00.",
+      "example": "25.00"
+    }
+  ],
+  "output_schema": [
+    {
+      "name": "new_account_id",
+      "type": "string",
+      "description": "The newly created sub-account's ID, as displayed on the success page."
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "s0",
+      "action": "navigate",
+      "description": "Navigate to this member's open-sub-account form",
+      "locator": null,
+      "value_template": "member/{{member_id}}/open-account",
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "safe",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s1",
+      "action": "select_option",
+      "description": "Choose the sub-account type",
+      "locator": {
+        "strategy": "css",
+        "value": "select[name='account_type']",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": "This <select> has no associated <label> in the legacy markup and Playwright reports its accessible name as empty (verified against a live render) -- role_name is not viable. CSS on the stable `name` attribute is the deliberate, documented fallback; breaks only if the form field is renamed server-side.",
+        "nth_cell": -1
+      },
+      "value_template": "{{account_type}}",
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "reversible",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s2",
+      "action": "fill",
+      "description": "Fill the initial deposit amount",
+      "locator": {
+        "strategy": "placeholder",
+        "value": "e.g. 25.00",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": "Accessible name is derived from placeholder text (verified live); breaks if the placeholder copy changes.",
+        "nth_cell": -1
+      },
+      "value_template": "{{initial_deposit}}",
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "reversible",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s3",
+      "action": "click",
+      "description": "Submit the form to reach the confirmation screen",
+      "locator": {
+        "strategy": "role_name",
+        "value": "Continue",
+        "role": "button",
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Continue",
+            "role": null,
+            "fallbacks": [],
+            "robustness_note": null,
+            "nth_cell": -1
+          }
+        ],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "value_template": null,
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "reversible",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s4",
+      "action": "click",
+      "description": "Confirm opening the sub-account -- irreversible; the target app's own confirmation screen (reached via s3) is the control gate here, per guardrails/policy.py's requires_confirmation semantics.",
+      "locator": {
+        "strategy": "role_name",
+        "value": "Confirm & Open Account",
+        "role": "button",
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Confirm & Open Account",
+            "role": null,
+            "fallbacks": [],
+            "robustness_note": null,
+            "nth_cell": -1
+          }
+        ],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "value_template": null,
+      "extract_as": null,
+      "extract_attribute": null,
+      "risk_level": "irreversible",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    },
+    {
+      "step_id": "s5",
+      "action": "extract",
+      "description": "Read the newly created account ID",
+      "locator": {
+        "strategy": "css",
+        "value": "#new-account-id",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": "Bare <span id=...>, no ARIA role/name at all -- CSS on a stable element id is the only option and is flagged low-robustness by the schema's own LocatorStrategy docstring.",
+        "nth_cell": -1
+      },
+      "value_template": null,
+      "extract_as": "new_account_id",
+      "extract_attribute": null,
+      "risk_level": "safe",
+      "timeout_ms": 5000,
+      "checkpoint": null
+    }
+  ],
+  "business_outcomes": [
+    {
+      "name": "member_not_found",
+      "description": "No record exists for the given member ID.",
+      "detection": {
+        "strategy": "text_content",
+        "value": "No member record found",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "outputs": {
+        "opened": false,
+        "reason": "member_not_found"
+      }
+    },
+    {
+      "name": "permission_denied",
+      "description": "The member record is restricted.",
+      "detection": {
+        "strategy": "text_content",
+        "value": "Access denied.",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "outputs": {
+        "opened": false,
+        "reason": "permission_denied"
+      }
+    },
+    {
+      "name": "invalid_deposit_amount",
+      "description": "Requested initial deposit is below the $5.00 minimum -- a validation error surfaced by the target app itself, not a replay bug.",
+      "detection": {
+        "strategy": "text_content",
+        "value": "Initial deposit must be at least $5.00.",
+        "role": null,
+        "fallbacks": [],
+        "robustness_note": null,
+        "nth_cell": -1
+      },
+      "outputs": {
+        "opened": false,
+        "reason": "deposit_below_minimum"
+      }
+    }
+  ],
+  "success_checkpoint": {
+    "strategy": "text_content",
+    "value": "Sub-account opened successfully.",
+    "role": null,
+    "fallbacks": [],
+    "robustness_note": null,
+    "nth_cell": -1
+  },
+  "allowed_domains": [
+    "127.0.0.1"
+  ],
+  "max_step_risk": "irreversible",
+  "created_at": "2026-09-10T20:57:39.559171+00:00",
+  "created_from_run_id": null,
+  "status": "approved"
+}

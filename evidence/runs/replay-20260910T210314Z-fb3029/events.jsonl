@@ -1,0 +1,7 @@
+{"ts": 1789074194.36195, "run_id": "replay-20260910T210314Z-fb3029", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T210314Z-fb3029"}}
+{"ts": 1789074194.36212, "run_id": "replay-20260910T210314Z-fb3029", "event": "cli_invocation", "payload": {"capability": "/private/tmp/claude-501/-Users-sahithi-Downloads-interface-ai-cua/5059ed66-dcf2-4f88-bbb9-2a9b339a90ff/scratchpad/member-balance-lookup.test.json", "params": {"member_id": "00099"}}}
+{"ts": 1789074194.660085, "run_id": "replay-20260910T210314Z-fb3029", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074194.687148, "run_id": "replay-20260910T210314Z-fb3029", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074194.707828, "run_id": "replay-20260910T210314Z-fb3029", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074194.779406, "run_id": "replay-20260910T210314Z-fb3029", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789074194.789129, "run_id": "replay-20260910T210314Z-fb3029", "event": "outcome", "payload": {"status": "business_outcome", "name": "member_not_found"}}

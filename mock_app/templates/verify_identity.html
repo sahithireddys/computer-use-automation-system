@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>CU-Servicer :: Verify Identity</title></head>
+<body style="font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">
+<table width="100%" cellpadding="4" cellspacing="0" border="0" bgcolor="#996600">
+  <tr><td><font color="white"><b>CU-SERVICER 3.2</b> &nbsp; Back-Office Console</font></td></tr>
+</table>
+<br>
+<table cellpadding="6" cellspacing="0" border="1">
+<tr><td>
+  This record requires an additional identity verification step before viewing.<br><br>
+  <form action="/verify-identity" method="post">
+    <input type="hidden" name="member_id" value="{{ member_id }}">
+    <button type="submit">Proceed to Record</button>
+  </form>
+</td></tr>
+</table>
+</body>
+</html>

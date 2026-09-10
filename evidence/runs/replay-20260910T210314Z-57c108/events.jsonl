@@ -1,0 +1,7 @@
+{"ts": 1789074194.941233, "run_id": "replay-20260910T210314Z-57c108", "event": "run_started", "payload": {"kind": "replay", "run_id": "replay-20260910T210314Z-57c108"}}
+{"ts": 1789074194.941403, "run_id": "replay-20260910T210314Z-57c108", "event": "cli_invocation", "payload": {"capability": "/private/tmp/claude-501/-Users-sahithi-Downloads-interface-ai-cua/5059ed66-dcf2-4f88-bbb9-2a9b339a90ff/scratchpad/member-balance-lookup.test.json", "params": {"member_id": "99999"}}}
+{"ts": 1789074195.236728, "run_id": "replay-20260910T210314Z-57c108", "event": "step", "payload": {"step_id": "s0", "action": "navigate", "risk": "safe"}}
+{"ts": 1789074195.2649422, "run_id": "replay-20260910T210314Z-57c108", "event": "step", "payload": {"step_id": "s1", "action": "fill", "risk": "safe"}}
+{"ts": 1789074195.2848158, "run_id": "replay-20260910T210314Z-57c108", "event": "step", "payload": {"step_id": "s2", "action": "click", "risk": "safe"}}
+{"ts": 1789074195.3457658, "run_id": "replay-20260910T210314Z-57c108", "event": "step", "payload": {"step_id": "s3", "action": "extract", "risk": "safe"}}
+{"ts": 1789074196.877007, "run_id": "replay-20260910T210314Z-57c108", "event": "outcome", "payload": {"status": "business_outcome", "name": "permission_denied"}}

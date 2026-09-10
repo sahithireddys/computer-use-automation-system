@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head><title>CU-Servicer :: Open Sub-Account</title></head>
+<body style="font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">
+<table width="100%" cellpadding="4" cellspacing="0" border="0" bgcolor="#003366">
+  <tr><td><font color="white"><b>CU-SERVICER 3.2</b> &nbsp; Back-Office Console</font></td></tr>
+</table>
+<br>
+<table cellpadding="6" cellspacing="0" border="1">
+<tr><td>
+  <b>Open New Sub-Account &mdash; Member {{ member.member_id }} ({{ member.first_name }} {{ member.last_name }})</b>
+  <br><br>
+  {% if errors %}
+    <font color="red">
+    {% for e in errors %}
+      &bull; {{ e }}<br>
+    {% endfor %}
+    </font>
+    <br>
+  {% endif %}
+  <form action="/member/{{ member.member_id }}/open-account" method="post">
+    <table cellpadding="3" cellspacing="0" border="0">
+      <tr>
+        <td>Account Type:</td>
+        <td>
+          <select name="account_type">
+            <option value="">-- select --</option>
+            <option value="Savings">Savings</option>
+            <option value="Checking">Checking</option>
+            <option value="Money Market">Money Market</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Initial Deposit ($):</td>
+        <td><input type="text" name="initial_deposit" placeholder="e.g. 25.00"></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right"><button type="submit">Continue</button></td>
+      </tr>
+    </table>
+  </form>
+  <br>
+  <a href="/member/{{ member.member_id }}/open-account">Back to member record</a>
+</td></tr>
+</table>
+</body>
+</html>
